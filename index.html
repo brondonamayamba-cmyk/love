@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>💖 The Legendary Love Page 💖</title>
+
+<style>
+body {
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(to bottom, #000010, #330033);
+    color:white;
+    overflow-x:hidden;
+}
+
+h1 {
+    color:#ff66cc;
+    margin-top:20px;
+}
+
+.section {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin:30px;
+}
+
+.card {
+    background:white;
+    color:#cc0066;
+    border-radius:15px;
+    padding:10px;
+    width:230px;
+    box-shadow:0 0 15px rgba(255,105,180,0.6);
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:scale(1.08);
+}
+
+.card img, .card video {
+    width:100%;
+    border-radius:10px;
+}
+
+button {
+    background:#ff3399;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.3s;
+}
+
+button:hover {
+    transform:scale(1.1);
+    background:#ff0066;
+}
+
+#finalMessage {
+    display:none;
+    margin:40px;
+    font-size:22px;
+    line-height:1.6;
+    color:#ffb3ff;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.heart, .rose {
+    position:fixed;
+    font-size:25px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall {
+    0% {transform:translateY(-50px); opacity:1;}
+    100% {transform:translateY(100vh); opacity:0;}
+}
+
+#counter {
+    margin-top:20px;
+    font-size:20px;
+    color:#ff99ff;
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 My Precious Nwanyi Oma 💖</h1>
+<div id="counter"></div>
+
+<h2>📸 Our Moments</h2>
+<div class="section">
+<div class='card'><img src='photo1.jpg'><p>you're the best ❤️</p></div><div class='card'><img src='photo2.jpg'><p>mon soleil ☀️</p></div><div class='card'><img src='photo3.jpg'><p>you make me the happiest 💕</p></div><div class='card'><img src='photo4.jpg'><p>I love you more than words can express 💖</p></div><div class='card'><img src='photo5.jpg'><p>spending a day without texting you makes me feel like I'm in the desert 🌵</p></div><div class='card'><img src='photo6.jpg'><p>you're gorgeous 😍</p></div><div class='card'><img src='photo7.jpg'><p>my queen 👑</p></div><div class='card'><img src='photo8.jpg'><p>my safe place 🤍</p></div><div class='card'><img src='photo9.jpg'><p>my forever love 💞</p></div><div class='card'><img src='photo10.jpg'><p>my heart belongs to you 💘</p></div></div>
+
+<h2>🎥 Our Memories</h2>
+<div class="section">
+<div class='card'><video src='video1.mp4' controls muted loop></video><p>Quality moments 💕</p></div><div class='card'><video src='video2.mp4' controls muted loop></video><p>les fous rires 😂</p></div><div class='card'><video src='video3.mp4' controls muted loop></video><p>Our beautiful memories 💖</p></div></div>
+
+<button onclick="showFinal()">💍 Click For Something Special 💍</button>
+
+<div id="finalMessage">
+For some years ago I thought I knew what love is, but I was definitely wrong,
+because my girlfriend redefined what really love is and what it is to be loved.<br><br>
+
+I genuinely love her.<br><br>
+
+For me the most beautiful thing she has ever said to me is « Tu me suffit »,
+that sentence means so much to me.<br><br>
+
+I can’t wait to see all the adventures and stories we’ll live together.<br><br>
+
+<strong>My precious Nwanyi Oma ❤️❤️</strong>
+</div>
+
+<audio id="bgMusic" loop>
+<source src="musique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// musique au premier clic
+document.body.addEventListener('click',()=>{
+document.getElementById("bgMusic").play();
+},{once:true});
+
+// compteur d'amour (change la date ici)
+const startDate = new Date("2023-01-01");
+const today = new Date();
+const diffTime = Math.abs(today - startDate);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+document.getElementById("counter").innerHTML =
+"❤️ I have loved you for " + diffDays + " days ❤️";
+
+// coeurs
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*window.innerWidth+"px";
+heart.style.animationDuration=(3+Math.random()*2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+}
+setInterval(createHeart,500);
+
+// roses
+function createRose(){
+const rose=document.createElement("div");
+rose.className="rose";
+rose.innerHTML="🌹";
+rose.style.left=Math.random()*window.innerWidth+"px";
+rose.style.animationDuration=(4+Math.random()*3)+"s";
+document.body.appendChild(rose);
+setTimeout(()=>rose.remove(),7000);
+}
+setInterval(createRose,1500);
+
+// bouton final
+function showFinal(){
+document.getElementById("finalMessage").style.display="block";
+for(let i=0;i<40;i++){
+createHeart();
+}
+}
+</script>
+
+</body>
+</html>
